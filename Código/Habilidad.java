@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Habilidad implements Serializable{
+public abstract class Habilidad implements Serializable{
 	
 	private String habNombre;
 	private int habFuerza;

@@ -4,18 +4,20 @@ public class Nivel implements Serializable{
 
 	private int longCasillas, altCasillas;
 	private String nombreNivel;
+	private String imgURL;
 
 	private Equipo equipo;
 
 	private Item[] items = new Item[10];
-	private Enemigo[] enemigos = new Enemigo[10];
+	private Enemigo[] enemigos = new Enemigo[4];
 	private FinalBoss finalBoss;
 
-	public Nivel(String nombreNivel, int longCasillas, int altCasillas, Equipo equipo){
+	public Nivel(String nombreNivel, int longCasillas, int altCasillas, Equipo equipo, String imgURL){
 		this.longCasillas = longCasillas;
 		this.altCasillas = altCasillas;
 		this.equipo = equipo;
 		this.nombreNivel = nombreNivel;
+		this.imgURL = imgURL;
 		initElementos();
 	}
 
@@ -30,6 +32,7 @@ public class Nivel implements Serializable{
 		this.finalBoss = finalBoss;
 	}
 
+	//Aqui colocamos el array entero de objetos a null
 	public void initElementos(){
 		for (int i=0; i<items.length; i++) { items[i]=null;
 		}
@@ -61,6 +64,12 @@ public class Nivel implements Serializable{
 	public FinalBoss getFinalBoss(){ return finalBoss;
 	}
 
+	public String getImgURL(){ return imgURL;
+	}
+
+	public void setImgURL(String s){ this.imgURL = s;
+	}
+
 	public void setEquipoCoords(int coordX, int coordY){ equipo.setCoords(coordX, coordY);
 	}
 
@@ -84,8 +93,7 @@ public class Nivel implements Serializable{
 		}
 	}
 
-	public void addFinalBoss(FinalBoss finalBoss, int coordX, int coordY){
+	public void addFinalBoss(FinalBoss finalBoss){
 		this.finalBoss = finalBoss;
-		finalBoss.setFBCoords(coordX, coordY);
 	}
 }

@@ -1,8 +1,11 @@
 import java.io.Serializable;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 //Esta clase es para lo que todo el equipo comparte
 // como las coordenadas, items, etc.
-public class Equipo implements Serializable{
+public class Equipo extends JFrame implements Serializable{
 	
 	private int coordX, coordY;
 	private Item[] items;
@@ -11,11 +14,17 @@ public class Equipo implements Serializable{
 	private Medico dr;
 	private Ingeniero ing;
 
+	private int batallasLibradas;
+
+	private ImageIcon icono;
+
 	public Equipo(Licenciado lic, Medico dr, Ingeniero ing){
 		this.lic = lic;
 		this.dr = dr;
 		this.ing = ing;
 		items = new Item[6];
+		icono = new ImageIcon(Class.class.getResource("/img/equipo.png"));
+		this.batallasLibradas = 0;
 		initItems();
 	}
 
@@ -26,6 +35,16 @@ public class Equipo implements Serializable{
 	}
 
 	public Ingeniero getIng(){ return ing;
+	}
+
+	public Heroe getHeroe(int index){
+		switch(index){
+			case 0: return lic;
+			case 1: return dr;
+			case 2: return ing;
+			default: break;
+		}
+		return lic;
 	}
 
 	public void setHeroes(Licenciado lic, Medico dr, Ingeniero ing){
@@ -73,5 +92,17 @@ public class Equipo implements Serializable{
 	}
 
 	public Item[] getItems(){ return items;
+	}
+
+	public ImageIcon getIcono(){ return icono;
+	}
+
+	public void setIcono(ImageIcon i){ this.icono = i;
+	}
+
+	public void librarBatalla(){ batallasLibradas++;
+	}
+
+	public int getBatallasLibradas(){ return batallasLibradas;
 	}
 }
