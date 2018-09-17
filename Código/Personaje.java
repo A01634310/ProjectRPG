@@ -1,9 +1,13 @@
 import java.io.Serializable;
+import javax.swing.*;
 
-public abstract class Personaje implements Serializable{
+public abstract class Personaje extends JFrame implements Serializable{
 	
 	private int maxHP, hp, atk, def;
 	private String nombre;
+
+	private ImageIcon imagen;
+	private ImageIcon icono;
 
 	public Personaje(String nombre, int maxHP, int atk, int def){
 		this.maxHP = maxHP;
@@ -19,10 +23,10 @@ public abstract class Personaje implements Serializable{
 	public void setNombre(String nombre){ this.nombre = nombre;
 	}
 
-	public int getHp(){ return hp;
+	public int getHP(){ return hp;
 	}
 
-	public void setHp(int hp){ this.hp = hp;
+	public void setHP(int hp){ this.hp = hp;
 	}
 
 	public int getMaxHP(){ return maxHP;
@@ -41,6 +45,18 @@ public abstract class Personaje implements Serializable{
 	}
 
 	public void setDef(int def){ this.def = def;
+	}
+
+	public ImageIcon getImagen(){ return imagen;
+	}
+
+	public void setImagen(ImageIcon i){ this.imagen = i;
+	}
+
+	public ImageIcon getIcono(){ return icono;
+	}
+
+	public void setIcono(ImageIcon i){ this.icono = i;
 	}
 	
 }

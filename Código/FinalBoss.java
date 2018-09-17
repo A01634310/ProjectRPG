@@ -1,13 +1,16 @@
+import javax.swing.*;
 import java.io.Serializable;
 
 public class FinalBoss extends Enemigo{
 	
 	private Pregunta[] preguntas = new Pregunta[5];
 
-	public FinalBoss(String nombre, int maxHP, int atk, int def){
-		super(nombre, maxHP, atk, def);
+	public FinalBoss(String nombre, int maxHP, int atk, int def, int enemyExp){
+		super(nombre, maxHP, atk, def, enemyExp);
 		//this.setTipoEnemigo("Boss");
 		initPreguntas();
+		setImagen(new ImageIcon(Class.class.getResource("/img/finalBoss.png")));
+		setBattleImg(new ImageIcon(Class.class.getResource("/img/finalBoss_battle.jpg")));
 	}
 
 	public void preguntar(){
@@ -24,15 +27,11 @@ public class FinalBoss extends Enemigo{
 	}
 
 	public void addPregunta(Pregunta pregunta){
-		if (preguntas[0]==null) { preguntas[0] = pregunta;
-		}
-		else if (preguntas[1]==null) { preguntas[1] = pregunta;
-		}
-		else if (preguntas[2]==null) { preguntas[2] = pregunta;
-		}
-		else if (preguntas[3]==null) { preguntas[3] = pregunta;
-		}
-		else if (preguntas[4]==null) { preguntas[4] = pregunta;
+		for (int i=0; i<preguntas.length; i++) {
+			if (preguntas[i]==null) {
+				preguntas[i]=pregunta;
+				break;
+			}
 		}
 	}
 

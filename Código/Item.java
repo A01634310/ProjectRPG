@@ -3,14 +3,12 @@ import java.io.Serializable;
 public class Item implements Serializable{
 	
 	private String itemNombre;
-	private int itemCuracion;
+	private int itemFuerza;
 	private int coordX, coordY;
 
-	public Item(String itemNombre, int itemCuracion){
+	public Item(String itemNombre, int itemFuerza){
 		this.itemNombre = itemNombre;
-		this.itemCuracion = itemCuracion;
-		this.coordX = coordX;
-		this.coordY = coordY;
+		this.itemFuerza = itemFuerza;
 	}
 
 	public String getItemNombre(){
@@ -21,12 +19,12 @@ public class Item implements Serializable{
 		this.itemNombre = itemNombre;
 	}
 
-	public int getItemCuracion(){
-		return itemCuracion;
+	public int getItemFuerza(){
+		return itemFuerza;
 	}
 
-	public void setItemCuracion(int itemCuracion){
-		this.itemCuracion = itemCuracion;
+	public void setItemFuerza(int itemFuerza){
+		this.itemFuerza = itemFuerza;
 	}
 
 	public int getCoordX(){ return coordX;
